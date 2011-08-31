@@ -11,7 +11,8 @@
 // Sanguinololu 1.2 and above = 62
 // Gen 3 Plus = 21
 // gen 3  Monolithic Electronics = 22
-#define MOTHERBOARD 3 
+// Looks like Derek has the 1.3
+#define MOTHERBOARD 33
 
 //// Thermistor settings:
 // 1 is 100k thermistor
@@ -43,7 +44,7 @@ const bool ENDSTOPS_INVERTING = false; //set to true to invert the logic of the 
 #define BAUDRATE 115200
 
 // Comment out (using // at the start of the line) to disable SD support:
-#define SDSUPPORT
+//#define SDSUPPORT 1
 
 
 //// ADVANCED SETTINGS - to tweak parameters
