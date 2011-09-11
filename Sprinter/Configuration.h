@@ -21,12 +21,16 @@
 // 4 is 10k thermistor
 // 5 is ParCan supplied 104GT-2 100K
 // 6 is EPCOS 100k
-#define THERMISTORHEATER 1
+#define THERMISTORHEATER 6
 #define THERMISTORBED 1
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
-float axis_steps_per_unit[] = {80, 80, 3200/1.25,700}; 
+//float axis_steps_per_unit[] = {80, 80, 3200/1.25,700}; 
+//Somehow this is correct, although the conversion makes no sense to me. 
+//I would expect at a 40mm/rotation 200 steps/rotation belt would mean 
+//5 steps/mm, but this 80 is 16x larger. wtf?
+float axis_steps_per_unit[] = {64, 64, 3200/1.25,700}; 
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //float axis_steps_per_unit[] = {80,80,3200/1.25,1380}; 
 // MakerGear Hybrid Prusa Mendel:
@@ -65,26 +69,26 @@ const bool DISABLE_E = false;
 
 // Inverting axis direction
 const bool INVERT_X_DIR = false;
-const bool INVERT_Y_DIR = false;
+const bool INVERT_Y_DIR = true;
 const bool INVERT_Z_DIR = true;
 const bool INVERT_E_DIR = false;
 
 //// ENDSTOP SETTINGS:
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
 #define X_HOME_DIR -1
-#define Y_HOME_DIR -1
+#define Y_HOME_DIR -1 //Reversed due to my off direction stuffs. -Derek
 #define Z_HOME_DIR -1
 
 const bool min_software_endstops = false; //If true, axis won't move to coordinates less than zero.
 const bool max_software_endstops = true;  //If true, axis won't move to coordinates greater than the defined lengths below.
-const int X_MAX_LENGTH = 200;
-const int Y_MAX_LENGTH = 200;
-const int Z_MAX_LENGTH = 100;
+const int X_MAX_LENGTH = 170;
+const int Y_MAX_LENGTH = 170;
+const int Z_MAX_LENGTH = 80;
 
 //// MOVEMENT SETTINGS
 const int NUM_AXIS = 4; // The axis order in all axis related arrays is X, Y, Z, E
 float max_feedrate[] = {200000, 200000, 240, 500000};
-float homing_feedrate[] = {1500,1500,120};
+float homing_feedrate[] = {500,500,120};
 bool axis_relative_modes[] = {false, false, false, false};
 
 // Min step delay in microseconds. If you are experiencing missing steps, try to raise the delay microseconds, but be aware this
