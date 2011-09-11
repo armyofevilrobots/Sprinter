@@ -22,14 +22,15 @@
 // 5 is ParCan supplied 104GT-2 100K
 // 6 is EPCOS 100k
 #define THERMISTORHEATER 6
+// 7 is 100k Honeywell thermistor 135-104LAG-J01
 #define THERMISTORBED 1
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
 //float axis_steps_per_unit[] = {80, 80, 3200/1.25,700}; 
-//Somehow this is correct, although the conversion makes no sense to me. 
-//I would expect at a 40mm/rotation 200 steps/rotation belt would mean 
-//5 steps/mm, but this 80 is 16x larger. wtf?
+
+// The pulleys I received are 10 tooth instead of 8, which means I get
+// 50mm/rotation == (200 steps/50mm) *16uSteps == 64 steps/mm
 float axis_steps_per_unit[] = {64, 64, 3200/1.25,700}; 
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //float axis_steps_per_unit[] = {80,80,3200/1.25,1380}; 
