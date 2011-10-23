@@ -23,7 +23,7 @@
 // 6 is EPCOS 100k
 #define THERMISTORHEATER 6
 // 7 is 100k Honeywell thermistor 135-104LAG-J01
-#define THERMISTORBED 1
+#define THERMISTORBED 2
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
@@ -84,7 +84,7 @@ const bool min_software_endstops = false; //If true, axis won't move to coordina
 const bool max_software_endstops = true;  //If true, axis won't move to coordinates greater than the defined lengths below.
 const int X_MAX_LENGTH = 170;
 const int Y_MAX_LENGTH = 170;
-const int Z_MAX_LENGTH = 80;
+const int Z_MAX_LENGTH = 90;
 
 //// MOVEMENT SETTINGS
 const int NUM_AXIS = 4; // The axis order in all axis related arrays is X, Y, Z, E
