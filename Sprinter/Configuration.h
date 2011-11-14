@@ -15,6 +15,8 @@
 // Looks like Derek has the 1.3
 #define MOTHERBOARD 33
 
+
+
 //// Thermistor settings:
 // 1 is 100k thermistor
 // 2 is 200k thermistor
@@ -24,7 +26,7 @@
 // 6 is EPCOS 100k
 #define THERMISTORHEATER 6
 // 7 is 100k Honeywell thermistor 135-104LAG-J01
-#define THERMISTORBED 2
+#define THERMISTORBED 8
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
@@ -32,7 +34,7 @@
 
 // The pulleys I received are 10 tooth instead of 8, which means I get
 // 50mm/rotation == (200 steps/50mm) *16uSteps == 64 steps/mm
-float axis_steps_per_unit[] = {64, 64, 3200/1.25,700}; 
+float axis_steps_per_unit[] = {63.6/4, 63.2/4, 2015,619.0/0.74}; 
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //float axis_steps_per_unit[] = {80,80,3200/1.25,1380}; 
 // MakerGear Hybrid Prusa Mendel:
@@ -47,7 +49,7 @@ const bool ENDSTOPS_INVERTING = false; //set to true to invert the logic of the 
 //If your axes move in one direction ONLY when the endstops are triggered, set ENDSTOPS_INVERTING to true here
 
 // This determines the communication speed of the printer
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 // Comment out (using // at the start of the line) to disable SD support:
 //#define SDSUPPORT 1
@@ -89,8 +91,8 @@ const int Z_MAX_LENGTH = 90;
 
 //// MOVEMENT SETTINGS
 const int NUM_AXIS = 4; // The axis order in all axis related arrays is X, Y, Z, E
-float max_feedrate[] = {200000, 200000, 240, 500000};
-float homing_feedrate[] = {500,500,120};
+float max_feedrate[] = {12000, 12000, 300, 9000};
+float homing_feedrate[] = {3000,3000,120};
 bool axis_relative_modes[] = {false, false, false, false};
 
 // Min step delay in microseconds. If you are experiencing missing steps, try to raise the delay microseconds, but be aware this
@@ -107,9 +109,9 @@ bool axis_relative_modes[] = {false, false, false, false};
 //// Acceleration settings
 #ifdef RAMP_ACCELERATION
 // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
-float max_start_speed_units_per_second[] = {25.0,25.0,0.2,10.0};
-long max_acceleration_units_per_sq_second[] = {1000,1000,50,10000}; // X, Y, Z and E max acceleration in mm/s^2 for printing moves or retracts
-long max_travel_acceleration_units_per_sq_second[] = {500,500,50,500}; // X, Y, Z max acceleration in mm/s^2 for travel moves
+float max_start_speed_units_per_second[] = {35.0,20.0,0.2,20.0};
+long max_acceleration_units_per_sq_second[] = {1000,1000,50,1000}; // X, Y, Z and E max acceleration in mm/s^2 for printing moves or retracts
+long max_travel_acceleration_units_per_sq_second[] = {1000,1000,50,1000}; // X, Y, Z max acceleration in mm/s^2 for travel moves
 #endif
 
 // Machine UUID

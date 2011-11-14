@@ -59,6 +59,7 @@
 
 //Stepper Movement Variables
 
+
 char axis_codes[NUM_AXIS] = {'X', 'Y', 'Z', 'E'};
 bool move_direction[NUM_AXIS];
 unsigned long axis_previous_micros[NUM_AXIS];

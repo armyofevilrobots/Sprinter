@@ -327,7 +327,33 @@ const short temptable_7[NUMTEMPS_7][2] = {
 };
 #endif
 
+#if (THERMISTORHEATER == 8) || (THERMISTORBED == 8) // Derek's custom unknown thermistor bed
+#define NUMTEMPS_8 21
+const short temptable_8[NUMTEMPS_8][2]  = {\
+   {1, 843},\
+   {54, 290},\
+   {107, 243},\
+   {160, 217},\
+   {213, 200},\
+   {266, 186},\
+   {319, 175},\
+   {372, 165},\
+   {425, 156},\
+   {478, 148},\
+   {531, 140},\
+   {584, 133},\
+   {637, 125},\
+   {690, 118},\
+   {743, 110},\
+   {796, 101},\
+   {849, 92},\
+   {902, 80},\
+   {955, 64},\
+   {1008, 32},\
+   {1020, 15}\
+};
 
+#endif
 
 #if THERMISTORHEATER == 1
 #define NUMTEMPS NUMTEMPS_1
@@ -374,6 +400,9 @@ const short temptable_7[NUMTEMPS_7][2] = {
 #elif THERMISTORBED == 7
 #define BNUMTEMPS NUMTEMPS_7
 #define bedtemptable temptable_7
+#elif THERMISTORBED == 8
+#define BNUMTEMPS NUMTEMPS_8
+#define bedtemptable temptable_8
 #elif defined BED_USES_THERMISTOR
 #error No bed thermistor table specified
 #endif
